@@ -1,0 +1,1143 @@
+/* ==========================================
+   BLUE AURORA — ULTRA NEON SKY BLUE EDITION
+========================================== */
+
+:root {
+    --bg-dark: #030814;
+
+    --sky-bright: #00d2ff;
+    --cyan-neon: #00f0ff;
+    --blue-electric: #0066ff;
+    --blue-glow: rgba(0, 240, 255, 0.5);
+
+    --text: #ffffff;
+    --text-soft: #b0d8ff;
+    --text-muted: #5e82a6;
+
+    --card-bg: rgba(6, 20, 42, 0.75);
+    --input-bg: rgba(3, 14, 30, 0.85);
+
+    --border: rgba(0, 210, 255, 0.25);
+    --border-bright: rgba(0, 240, 255, 0.7);
+
+    --shadow-neon: 0 0 25px rgba(0, 210, 255, 0.35);
+
+    --ok: #4ade80;
+    --warn: #fbbf24;
+    --bad: #f87171;
+
+    --radius: 24px;
+    --transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ==========================================
+   RESET & FONDO AURORA BOREAL
+========================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.25), transparent 45%),
+        radial-gradient(circle at 85% 20%, rgba(0, 102, 255, 0.32), transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(0, 210, 255, 0.2), transparent 45%),
+        linear-gradient(135deg, #020610 0%, #07152b 50%, #030b1e 100%);
+    background-attachment: fixed;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+::selection {
+    background: var(--cyan-neon);
+    color: #020610;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+    width: 100%;
+    padding: 22px 5%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    background: rgba(4, 18, 38, 0.82);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(0, 240, 255, 0.2) inset;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.author {
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.header-title {
+    text-align: center;
+}
+
+.header-title h1 {
+    font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 0%, var(--cyan-neon) 50%, var(--sky-bright) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 18px rgba(0, 240, 255, 0.6));
+    animation: shine 5s linear infinite;
+}
+
+.header-title p {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.creator {
+    justify-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.creator span {
+    color: var(--text-muted);
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.creator strong {
+    margin-top: 2px;
+    color: var(--cyan-neon);
+    font-size: 16px;
+    font-weight: 900;
+    text-shadow: 0 0 12px rgba(0, 240, 255, 0.7);
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+main {
+    width: min(1200px, 90%);
+    margin: 40px auto 60px;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.location-icon {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--cyan-neon) 0%, var(--blue-electric) 100%);
+    color: #ffffff;
+    font-size: 26px;
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+    animation: bob 3s ease-in-out infinite;
+}
+
+.hero h2 {
+    color: var(--text);
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
+.hero p {
+    margin-top: 4px;
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+/* ==========================================
+   BUSCADOR DE RUTAS
+========================================== */
+
+.search-container {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), var(--shadow-neon);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    margin-bottom: 28px;
+    transition: all var(--transition);
+}
+
+.search-container:focus-within {
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.5);
+}
+
+.route-search {
+    flex-wrap: wrap;
+}
+
+.route-fields {
+    flex: 1;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.input-wrapper {
+    min-width: 0;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    transition: all var(--transition);
+}
+
+.input-wrapper:hover {
+    border-color: var(--sky-bright);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+}
+
+.input-wrapper:focus-within {
+    background: rgba(2, 10, 24, 0.95);
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.search-icon {
+    width: 50px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan-neon);
+    font-size: 18px;
+    filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.7));
+}
+
+input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding-right: 12px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Botón de ubicación actual */
+.loc-btn {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(0, 240, 255, 0.1);
+    font-size: 17px;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.loc-btn:hover {
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    transform: scale(1.06);
+}
+
+.loc-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+/* Selector de transporte */
+.mode-switch {
+    height: 56px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.mode-switch button {
+    height: 42px;
+    padding: 0 14px;
+    border: 1px solid transparent;
+    border-radius: 13px;
+    background: transparent;
+    color: var(--text-soft);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.mode-switch button:hover {
+    color: #ffffff;
+    border-color: var(--border);
+}
+
+.mode-switch button.active {
+    background: linear-gradient(135deg, var(--cyan-neon), var(--blue-electric));
+    color: #020610;
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.5);
+}
+
+/* ==========================================
+   BOTÓN "CALCULAR RUTA"
+========================================== */
+
+#searchBtn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-width: 175px;
+    height: 56px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+
+    background: linear-gradient(
+        115deg,
+        var(--cyan-neon) 0%,
+        var(--sky-bright) 45%,
+        var(--blue-electric) 100%
+    );
+    background-size: 200% 200%;
+
+    color: #020610;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+
+    box-shadow:
+        0 0 25px rgba(0, 240, 255, 0.7),
+        0 0 50px rgba(0, 102, 255, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+
+    transition: all 0.35s ease;
+}
+
+#searchBtn::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -50%;
+    left: -100%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.85),
+        transparent
+    );
+    transform: rotate(25deg);
+    transition: left 0.7s ease;
+}
+
+#searchBtn:hover {
+    transform: translateY(-3px) scale(1.02);
+    background-position: 100% 0%;
+    box-shadow:
+        0 0 35px rgba(0, 240, 255, 1),
+        0 0 70px rgba(0, 102, 255, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 1);
+    color: #000000;
+}
+
+#searchBtn:hover::before {
+    left: 150%;
+}
+
+#searchBtn:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+#searchBtn:focus-visible {
+    outline: 3px solid var(--cyan-neon);
+    outline-offset: 3px;
+}
+
+#searchBtn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading {
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--cyan-neon);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.spinner {
+    width: 22px;
+    height: 22px;
+    border: 3px solid rgba(0, 240, 255, 0.2);
+    border-top-color: var(--cyan-neon);
+    border-right-color: var(--sky-bright);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    filter: drop-shadow(0 0 10px var(--cyan-neon));
+}
+
+/* ==========================================
+   ESTADO VACÍO / MENSAJES
+========================================== */
+
+.result-card {
+    width: 100%;
+    padding: 44px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--shadow-neon);
+    backdrop-filter: blur(20px);
+}
+
+.empty-state {
+    text-align: center;
+}
+
+.empty-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(0, 102, 255, 0.25));
+    border: 1px solid var(--border-bright);
+    color: var(--cyan-neon);
+    font-size: 32px;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+}
+
+.empty-state h2 {
+    margin-bottom: 8px;
+    color: var(--text);
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.empty-state p {
+    max-width: 460px;
+    margin: 0 auto;
+    color: var(--text-soft);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   RESULTADOS
+========================================== */
+
+.location-content {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    animation: fadeIn 0.4s ease-out both;
+}
+
+.location-info,
+.map-section,
+.weather-panel,
+.steps-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--shadow-neon);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 24px;
+}
+
+.location-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.pin {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--cyan-neon) 0%, var(--blue-electric) 100%);
+    color: #ffffff;
+    font-size: 22px;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+}
+
+.label,
+.map-label {
+    display: block;
+    color: var(--cyan-neon);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+}
+
+.location-heading h2,
+.map-header h3 {
+    margin-top: 4px;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   CAJAS DE DATOS
+========================================== */
+
+.coordinates {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.data-box {
+    padding: 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: all var(--transition);
+}
+
+.data-box:hover {
+    border-color: var(--cyan-neon);
+    background: rgba(6, 20, 42, 0.95);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.data-box span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.data-box strong {
+    color: var(--cyan-neon);
+    font-size: 15px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   OPCIONES DE RUTA
+========================================== */
+
+.route-options {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.route-chip {
+    width: 100%;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text-soft);
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.route-chip b {
+    color: var(--text);
+    font-size: 13px;
+}
+
+.route-chip:hover {
+    border-color: var(--cyan-neon);
+    transform: translateX(3px);
+}
+
+.route-chip.active {
+    border-color: var(--cyan-neon);
+    background: rgba(0, 240, 255, 0.12);
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.35);
+}
+
+/* ==========================================
+   AVISO DEL CLIMA PARA EL VIAJE
+========================================== */
+
+.advice {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.advice strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.advice ul {
+    list-style: none;
+    color: var(--text-soft);
+}
+
+.advice li + li {
+    margin-top: 4px;
+}
+
+.advice.ok {
+    border-color: rgba(74, 222, 128, 0.5);
+    box-shadow: 0 0 18px rgba(74, 222, 128, 0.18);
+}
+.advice.ok strong { color: var(--ok); }
+
+.advice.warn {
+    border-color: rgba(251, 191, 36, 0.55);
+    box-shadow: 0 0 18px rgba(251, 191, 36, 0.2);
+}
+.advice.warn strong { color: var(--warn); }
+
+.advice.bad {
+    border-color: rgba(248, 113, 113, 0.6);
+    box-shadow: 0 0 18px rgba(248, 113, 113, 0.25);
+}
+.advice.bad strong { color: var(--bad); }
+
+/* ==========================================
+   MAPA
+========================================== */
+
+.map-section {
+    padding: 16px;
+}
+
+.map-header {
+    padding: 4px 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.map-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(0, 240, 255, 0.12);
+    border: 1px solid var(--border-bright);
+    border-radius: 20px;
+    color: var(--cyan-neon);
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+}
+
+.map-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan-neon);
+    box-shadow: 0 0 8px var(--cyan-neon);
+}
+
+#map {
+    width: 100%;
+    height: 480px;
+    background: #e5e3df;
+    border: 1px solid var(--border-bright);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
+}
+
+/* Marcadores A y B */
+.pin-marker {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.5);
+}
+
+.pin-marker span {
+    transform: rotate(45deg);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.pin-marker.a { background: #16a34a; }
+.pin-marker.b { background: #e11d48; }
+
+/* ==========================================
+   LEAFLET PERSONALIZADO
+========================================== */
+
+.leaflet-control-zoom {
+    border: 1px solid var(--border-bright) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4) !important;
+    overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    background: rgba(3, 14, 30, 0.95) !important;
+    color: var(--cyan-neon) !important;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background: rgba(6, 20, 42, 1) !important;
+    color: #ffffff !important;
+}
+
+.leaflet-control-layers {
+    background: rgba(3, 14, 30, 0.95) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border-bright) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 0 18px rgba(0, 210, 255, 0.4) !important;
+}
+
+.leaflet-control-layers-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 14px;
+}
+
+.leaflet-control-layers-expanded {
+    padding: 12px 16px !important;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.leaflet-control-layers label {
+    display: block;
+    margin: 4px 0;
+    cursor: pointer;
+}
+
+.leaflet-control-layers-selector {
+    accent-color: var(--cyan-neon);
+    margin-right: 6px;
+}
+
+.leaflet-tooltip {
+    background: rgba(3, 14, 30, 0.95) !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border-bright) !important;
+    border-radius: 10px !important;
+    font-weight: 700;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4) !important;
+}
+
+.leaflet-tooltip-top:before {
+    border-top-color: var(--border-bright) !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(3, 14, 30, 0.8) !important;
+    color: var(--text-muted) !important;
+    font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--cyan-neon) !important;
+}
+
+/* ==========================================
+   CLIMA EN ORIGEN Y DESTINO
+========================================== */
+
+.weather-panel,
+.steps-panel {
+    grid-column: 1 / -1;
+}
+
+.wx-compare {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.wx-card {
+    padding: 22px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: all var(--transition);
+}
+
+.wx-card:hover {
+    border-color: var(--cyan-neon);
+    box-shadow: 0 0 28px rgba(0, 240, 255, 0.35);
+    transform: translateY(-3px);
+}
+
+.wx-card h4 {
+    margin-top: 4px;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.wx-main {
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.wx-icon {
+    font-size: 54px;
+    filter: drop-shadow(0 0 14px rgba(0, 240, 255, 0.7));
+}
+
+.wx-temp {
+    color: var(--cyan-neon);
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1;
+    text-shadow: 0 0 16px rgba(0, 240, 255, 0.7);
+}
+
+.wx-temp small {
+    margin-left: 2px;
+    color: var(--sky-bright);
+    font-size: 18px;
+}
+
+.wx-desc {
+    margin-top: 4px;
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.wx-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.wx-none {
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* ==========================================
+   INDICACIONES PASO A PASO
+========================================== */
+
+.steps-list {
+    margin-top: 14px;
+    max-height: 340px;
+    overflow-y: auto;
+    list-style: none;
+    counter-reset: step;
+    padding-right: 6px;
+}
+
+.steps-list li {
+    counter-increment: step;
+    padding: 11px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.steps-list li:last-child {
+    border-bottom: none;
+}
+
+.steps-list li::before {
+    content: counter(step);
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 240, 255, 0.15);
+    border: 1px solid var(--border-bright);
+    color: var(--cyan-neon);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.step-text {
+    flex: 1;
+    color: var(--text);
+}
+
+.step-dist {
+    color: var(--sky-bright);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.steps-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.steps-list::-webkit-scrollbar-thumb {
+    background: var(--border-bright);
+    border-radius: 10px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.success-footer {
+    margin-top: 22px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.success-footer span {
+    color: var(--cyan-neon);
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+/* ==========================================
+   ORBES DE AURORA EN EL FONDO
+========================================== */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    z-index: -1;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.45;
+    pointer-events: none;
+    animation: float 14s ease-in-out infinite alternate;
+}
+
+body::before {
+    top: -120px;
+    left: -120px;
+    background: var(--cyan-neon);
+}
+
+body::after {
+    bottom: -140px;
+    right: -120px;
+    background: var(--blue-electric);
+    animation-delay: -7s;
+}
+
+/* ==========================================
+   ANIMACIONES
+========================================== */
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(60px, 40px) scale(1.15); }
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+@keyframes bob {
+    50% { transform: translateY(-6px); }
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+    header {
+        grid-template-columns: 1fr 1fr;
+    }
+    .header-title {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+    .author, .creator {
+        grid-row: 2;
+    }
+    .location-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    .creator {
+        align-items: center;
+    }
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .route-fields {
+        grid-template-columns: 1fr;
+        min-width: 0;
+    }
+    .mode-switch {
+        justify-content: center;
+    }
+    #searchBtn {
+        width: 100%;
+    }
+    #map {
+        height: 350px;
+    }
+}

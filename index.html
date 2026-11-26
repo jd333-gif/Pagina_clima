@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planificador de Rutas con Clima</title>
+
+<!-- Leaflet (mapa interactivo) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="author">ITIID-42</div>
+
+    <div class="header-title">
+        <h1>Planificador de Rutas con Clima</h1>
+        <p>Rutas con OSRM · Lugares con OpenStreetMap · Clima en tiempo real con Open-Meteo</p>
+    </div>
+
+    <div class="creator">
+        <span>Creado por</span>
+        <strong>ITIID-42 </strong>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="location-icon">🧭</div>
+        <div>
+            <h2>Encuentra la mejor ruta y revisa el clima</h2>
+            <p>Escribe un origen y un destino, y te muestro el camino, el tiempo de viaje y cómo está el clima.</p>
+        </div>
+    </section>
+
+    <div class="search-container route-search">
+        <div class="route-fields">
+            <div class="input-wrapper">
+                <span class="search-icon">🟢</span>
+                <input type="text" id="originInput" placeholder="Origen (ej. Toluca)" autocomplete="off">
+                <button type="button" id="locBtn" class="loc-btn" title="Usar mi ubicación actual">📍</button>
+            </div>
+            <div class="input-wrapper">
+                <span class="search-icon">🔴</span>
+                <input type="text" id="destInput" placeholder="Destino (ej. Ciudad de México)" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="mode-switch" id="modeSwitch">
+            <button type="button" data-mode="car" class="active">🚗 Auto</button>
+            <button type="button" data-mode="bike">🚴 Bici</button>
+            <button type="button" data-mode="foot">🚶 A pie</button>
+        </div>
+
+        <button id="searchBtn">🧭 Calcular ruta</button>
+    </div>
+
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <span>Calculando la mejor ruta y consultando el clima...</span>
+    </div>
+
+    <div id="resultArea">
+        <div class="result-card">
+            <div class="empty-state">
+                <div class="empty-icon">🛰️</div>
+                <h2>Esperando ruta</h2>
+                <p>Introduce un origen y un destino para ver la mejor ruta, la distancia, el tiempo estimado y el clima en ambos puntos.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
